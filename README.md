@@ -1,2 +1,2 @@
-# SMF-Store
-A store for SMF, obviously.
+# CoreStore
+A simple store mod for SMF.
