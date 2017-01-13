@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>CoreStoreTeam:CoreStore</id>
+	<name>Core Store</name>
+	<version>0.0.1</version>
+	<type>modification</type>
+
+	<install for="2.0.*, 2.1 Beta 2">
+		<require-dir name="cs_source" destination="$sourcedir" />
+        <require-dir name="cs_template" destination="$themedir" />
+        <database>install.php</database>
+	</install>
+
+	<uninstall for="2.0.*, 2.1 Beta 2">
+		<remove-dir name="$sourcedir/cs_source" />
+        <remove-dir name="$themedir/cs_template" />
+        <database>uninstall.php</database>
+	</uninstall>
+
+</package-info>
