@@ -1,0 +1,24 @@
+#item_title {
+    font-size: 18px;
+    text-align: center;
+}
+
+#item_thumbnail {
+    float: left;
+    display: block;
+    max-width: 180px;
+    max-height: 200px;
+}
+
+#item_description {
+    border-left: 1px solid #cecece;
+    margin-left: 200px;
+    padding: 10px;
+}
+
+#item_photo_slider {
+    border: 1px solid #cecece;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+}

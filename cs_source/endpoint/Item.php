@@ -9,5 +9,5 @@ function csItem()
     $itemInteractor = new ItemInteractor(new ItemDouble());
     $itemInteractor->loadItemContext(1);
     
-    loadTemplate('/cs_template/Item');
+    loadTemplate('/cs_template/Item', '/cs_styles/item');
 }
