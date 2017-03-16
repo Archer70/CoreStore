@@ -2,5 +2,6 @@
 
 function template_main()
 {
-    echo 'test';
+    global $context;
+    print_r($context['cs_item']);
 }

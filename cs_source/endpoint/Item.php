@@ -1,9 +1,13 @@
 <?php
-use CoreStore\Interactors\ItemInteractor;
+use CoreStore\interactors\ItemInteractor;
+use CoreStore\test\test_doubles\ItemDouble;
+
+require __DIR__ . '/../TestBootstrap.php';
 
 function csItem()
 {
-    $itemInteractor = new ItemInteractor();
+    $itemInteractor = new ItemInteractor(new ItemDouble());
+    $itemInteractor->loadItemContext(1);
     
     loadTemplate('/cs_template/Item');
 }
