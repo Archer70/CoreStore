@@ -9,12 +9,14 @@
 	<install for="2.0.*, 2.1 Beta 2">
 		<require-dir name="cs_source" destination="$sourcedir" />
         <require-dir name="cs_template" destination="$themedir" />
+        <require-dir name="cs_styles" destination="$themedir/css" />
         <database>install.php</database>
 	</install>
 
 	<uninstall for="2.0.*, 2.1 Beta 2">
 		<remove-dir name="$sourcedir/cs_source" />
         <remove-dir name="$themedir/cs_template" />
+        <remove-dir name="$themedir/css/cs_template" />
         <database>uninstall.php</database>
 	</uninstall>
 
