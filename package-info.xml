@@ -10,6 +10,7 @@
 		<require-dir name="cs_source" destination="$sourcedir" />
         <require-dir name="cs_template" destination="$themedir" />
         <require-dir name="cs_styles" destination="$themedir/css" />
+        <require-file name="images/cs_store.png" destination="$themedir/images" />
         <database>install.php</database>
 	</install>
 
@@ -17,6 +18,7 @@
 		<remove-dir name="$sourcedir/cs_source" />
         <remove-dir name="$themedir/cs_template" />
         <remove-dir name="$themedir/css/cs_template" />
+        <remove-file name="$themedir/images/cs_store.png" />
         <database>uninstall.php</database>
 	</uninstall>
 

@@ -5,7 +5,7 @@ function template_main()
     global $context;
     echo '
         <h2 id="item_title">Item Title</h2>
-        <img id="item_thumbnail" src="https://avatars0.githubusercontent.com/u/2660927?v=3&s=460" alt="">
+        <img id="item_thumbnail" src="http://img1.cookinglight.timeinc.net/sites/default/files/image/2013/05/1305-bacon-x.jpg" alt="">
         <div id="item_description">
             <div id="item_photo_slider">Image slider</div>
             <p>Bacon ipsum dolor amet ribeye meatloaf pork belly porchetta. Capicola frankfurter shoulder pancetta andouille picanha spare ribs chicken salami kevin short ribs. Cow tongue ribeye ham pork belly porchetta pastrami venison. Turducken jerky tail, prosciutto burgdoggen meatball hamburger kevin sirloin ribeye meatloaf cow doner. Pork belly tail turducken bacon, shankle sirloin pastrami fatback ribeye boudin shank picanha alcatra salami. Sausage drumstick sirloin pork belly.</p>
