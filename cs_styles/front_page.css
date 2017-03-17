@@ -1,0 +1,25 @@
+.cs_item {
+    float: left;
+    width: 200px;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.cs_item h3 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.cs_item img {
+    max-width: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.cs_item .price {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+}
