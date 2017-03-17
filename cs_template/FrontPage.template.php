@@ -27,6 +27,7 @@ function template_main()
     ];
     
     foreach ($fakeItems as $item) {
+        global $scripturl;
         printf('
             <div class="cs_item">
                 <h3><a href="' . $scripturl . '?action=store_item;item=%d">%s</a></h3>
