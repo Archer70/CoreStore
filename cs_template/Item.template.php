@@ -2,7 +2,7 @@
 
 function template_main()
 {
-    global $context;
+    global $context, $txt;
     echo '
         <h2 id="item_title" class="subbg">Item Title</h2>
         <img id="item_thumbnail" src="http://img1.cookinglight.timeinc.net/sites/default/files/image/2013/05/1305-bacon-x.jpg" alt="">
