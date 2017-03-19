@@ -10,6 +10,7 @@
 		<require-dir name="cs_source" destination="$sourcedir" />
         <require-dir name="cs_template" destination="$themedir" />
         <require-dir name="cs_styles" destination="$themedir/css" />
+        <require-dir name="cs_language" destination="$languagedir" />
         <require-file name="images/cs_store.png" destination="$themedir/images" />
         <database>install.php</database>
 	</install>
@@ -17,7 +18,8 @@
 	<uninstall for="2.0.*, 2.1 Beta 2">
 		<remove-dir name="$sourcedir/cs_source" />
         <remove-dir name="$themedir/cs_template" />
-        <remove-dir name="$themedir/css/cs_template" />
+        <remove-dir name="$themedir/css/cs_styles" />
+		<remove-dir name="$languagedir/cs_language" />
         <remove-file name="$themedir/images/cs_store.png" />
         <database>uninstall.php</database>
 	</uninstall>
