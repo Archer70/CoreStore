@@ -1,6 +1,5 @@
 #item_title {
-    font-size: 18px;
-    text-align: center;
+    font-size: 25px;
 }
 
 #item_thumbnail {
@@ -11,7 +10,6 @@
 }
 
 #item_description {
-    border-left: 1px solid #cecece;
     margin-left: 200px;
     padding: 10px;
 }
@@ -21,4 +19,27 @@
     font-size: 18px;
     text-align: center;
     padding: 10px;
+}
+#buttons {
+	float: right;
+	padding: 0 10px;
+}
+#buy_now {
+	color: #FFF;
+	background: #5cb85c;
+	border-color: #4cae4c;
+}
+#buy_now:hover {
+	background: #449d44;
+	border-color: #398439;
+}
+
+#feedback {
+	clear: both;
+	padding-top: 15px;
+}
+#feedback .windowbg {}
+#feedback .user_information {
+	float: right;
+	font-style: italic;
 }
