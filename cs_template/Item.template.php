@@ -2,32 +2,36 @@
 
 function template_main()
 {
-    global $context, $txt, $settings;
+    global $context, $txt;
+	
+	// I can't think of a good reason making text bbc presentable shouldn't be a template operation.
+	$context['cs_item']['description'] = parse_bbc($context['cs_item']['description']);
+	$comments = $context['cs_item_comments'];
+	foreach ($comments as $id => $comment) {
+		$comments[$id]['body'] = parse_bbc($comment['body']);
+	}
 
     echo '
-        <h2 id="item_title" class="subbg">Item Title</h2>
+        <h2 id="item_title" class="subbg">', $context['cs_item']['title'], '</h2>
         <img id="item_thumbnail" src="http://img1.cookinglight.timeinc.net/sites/default/files/image/2013/05/1305-bacon-x.jpg" alt="">
         <div id="item_description">
             <div id="item_photo_slider">', $txt['cs_slider'],'</div>
-            <p style="text-align: justify;">Bacon ipsum dolor amet ribeye meatloaf pork belly porchetta. Capicola frankfurter shoulder pancetta andouille picanha spare ribs chicken salami kevin short ribs. Cow tongue ribeye ham pork belly porchetta pastrami venison. Turducken jerky tail, prosciutto burgdoggen meatball hamburger kevin sirloin ribeye meatloaf cow doner. Pork belly tail turducken bacon, shankle sirloin pastrami fatback ribeye boudin shank picanha alcatra salami. Sausage drumstick sirloin pork belly.</p>
-            <p style="text-align: justify;">Turkey short loin boudin ball tip cow frankfurter drumstick alcatra pig. Tenderloin pork tongue spare ribs meatball, jowl meatloaf beef ribs shoulder ball tip turducken t-bone boudin. Pastrami flank t-bone, bacon alcatra frankfurter bresaola jerky beef ribs. Chuck shankle shank, picanha rump swine ground round. Leberkas doner bresaola sausage boudin pig short ribs, andouille cow ribeye prosciutto tenderloin turkey ham hock.</p>
+            ', $context['cs_item']['description'], '
         </div>
 		<div id="buttons">
-			<a href="#" id="buy_now" class="button">', $txt['cs_buy_now'],' ($4.74)</a>
+			<a href="#" id="buy_now" class="button">', $txt['cs_buy_now'],' ($', $context['cs_item']['price'], ')</a>
 		</div>
 		<div id="feedback">
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['cs_comments'],'</h3>
 			</div>';
-	
-		if (!empty($context['cs_item_comments'])) {
-			foreach ($context['cs_item_comments'] as $comment) {
-				echo '
+
+		foreach ($comments as $comment) {
+			echo '
 			<div id="comment_', $comment['id'], '" class="windowbg">
 				<div class="user_comment">', $comment['body'], '</div>
 				<div class="user_information">', $comment['username'], '</div>
 			</div>';
-			}
 		}
 		
 		echo '

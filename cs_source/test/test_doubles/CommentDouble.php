@@ -15,7 +15,7 @@ class CommentDouble implements CommentInterface
 			'id' => 2,
 			'itemId' => 1,
 			'username' => 'TehCraw',
-			'body' => 'This is another comment, as if that wasn\'t obvious.'
+			'body' => 'This is another comment, as if that wasn\'t obvious. :D'
 		]
 	];
 	
