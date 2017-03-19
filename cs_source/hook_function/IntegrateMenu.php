@@ -4,7 +4,7 @@ function csIntegrateMenu(&$menu)
 {
 	global $scripturl, $txt;
 
-	loadLanguage('cs_language/CoreShop');
+	loadLanguage('cs_language/CoreStore');
 	$menu['cs_store'] = [
 		'title' => $txt['cs_shop'],
 		'href' => $scripturl . '?action=store',

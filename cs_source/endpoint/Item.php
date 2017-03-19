@@ -10,5 +10,5 @@ function csItem()
 	$itemInteractor->loadItemContext(1);
 	
 	loadTemplate('cs_template/Item', 'cs_styles/item');
-	loadLanguage('cs_language/CoreShop');
+	loadLanguage('cs_language/CoreStore');
 }
