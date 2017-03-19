@@ -3,5 +3,5 @@ namespace CoreStore\interfaces;
 
 interface FrontPageData
 {
-    public function getAllItems();
+	public function getAllItems();
 }

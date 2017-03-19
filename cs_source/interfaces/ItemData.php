@@ -3,5 +3,5 @@ namespace CoreStore\interfaces;
 
 interface ItemData
 {
-    public function getItemInformation($id);
+	public function getItemInformation($id);
 }

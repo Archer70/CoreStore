@@ -4,8 +4,8 @@ use CoreStore\interfaces\ItemData;
 
 class ItemDouble implements ItemData
 {
-    public function getItemInformation($itemId)
-    {
-        return $itemId === 1 ? ['name' => 'test'] : [];
-    }
+	public function getItemInformation($itemId)
+	{
+		return $itemId === 1 ? ['name' => 'test'] : [];
+	}
 }
