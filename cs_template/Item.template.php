@@ -4,10 +4,6 @@ function template_main()
 {
     global $context, $txt, $settings;
 
-	echo '
-		<script src="', $settings['theme_url'] , '/scripts/jquery.sceditor.bbcode.min.js"></script>
-		<script src="', $settings['theme_url'] , '/scripts/editor.js"></script>';
-	
     echo '
         <h2 id="item_title" class="subbg">Item Title</h2>
         <img id="item_thumbnail" src="http://img1.cookinglight.timeinc.net/sites/default/files/image/2013/05/1305-bacon-x.jpg" alt="">
@@ -31,6 +27,9 @@ function template_main()
 				<div class="user_comment">Another comment</div>
 				<div class="user_information">Antes</div>
 			</div>
-			', template_control_richedit('cs_item_comments'), '
+			<br>
+			<div id="cs_bbc_box"></div>
+			<div id="cs_smiley_box"></div>
+			', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
 		</div>';
 }
