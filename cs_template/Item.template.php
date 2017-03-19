@@ -18,15 +18,19 @@ function template_main()
 		<div id="feedback">
 			<div class="cat_bar">
 				<h3 class="catbg">', $txt['cs_comments'],'</h3>
-			</div>
-			<div id="comment_1" class="windowbg">
-				<div class="user_comment">A comment</div>
-				<div class="user_information">Antes</div>
-			</div>
-			<div id="comment_2" class="windowbg">
-				<div class="user_comment">Another comment</div>
-				<div class="user_information">Antes</div>
-			</div>
+			</div>';
+	
+		if (!empty($context['cs_item_comments'])) {
+			foreach ($context['cs_item_comments'] as $comment) {
+				echo '
+			<div id="comment_', $comment['id'], '" class="windowbg">
+				<div class="user_comment">', $comment['body'], '</div>
+				<div class="user_information">', $comment['username'], '</div>
+			</div>';
+			}
+		}
+		
+		echo '
 			<br>
 			<div id="cs_bbc_box"></div>
 			<div id="cs_smiley_box"></div>
