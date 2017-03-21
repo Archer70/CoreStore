@@ -1,5 +1,8 @@
 <?php
 
+/* Title */
+$txt['core_store'] = 'CoreStore';
+
 /* Menu */
 $txt['cs_shop'] = 'Shop';
 /* Front Page */

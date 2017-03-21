@@ -10,9 +10,21 @@ function csItem()
 {
 	global $context, $txt;
 	
+	loadLanguage('cs_language/CoreStore');
+	
 	$itemInteractor = new ItemInteractor(new ItemDouble());
 	$itemInteractor->loadItemContext(1);
 	
+	$context['page_title'] = $txt['core_store'] . ' | ' . $context['cs_item']['title'];
+	
+	cs_createCommentBox();
+	
+	loadTemplate('cs_template/Item', 'cs_styles/item');
+}
+
+function cs_createCommentBox()
+{
+	global $context, $txt;
 	$editorOptions = [
 		'id' => 'cs_item_comments',
 		'value' => '',
@@ -25,7 +37,4 @@ function csItem()
 	];
 	create_control_richedit($editorOptions);
 	$context['post_box_name'] = $editorOptions['id'];
-	
-	loadTemplate('cs_template/Item', 'cs_styles/item');
-	loadLanguage('cs_language/CoreStore');
 }
