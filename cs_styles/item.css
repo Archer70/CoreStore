@@ -38,8 +38,16 @@
 	clear: both;
 	padding-top: 15px;
 }
-#feedback .windowbg {}
+#feedback .windowbg {
+	margin: 0;
+	border-radius: 0;
+	border-top: 0;
+	box-shadow: 0;
+}
 #feedback .user_information {
 	float: right;
 	font-style: italic;
+}
+#cs_reply {
+	margin: 15px 0 0 0;
 }

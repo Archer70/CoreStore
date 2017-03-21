@@ -35,9 +35,15 @@ function template_main()
 		}
 		
 		echo '
-			<br>
-			<div id="cs_bbc_box"></div>
-			<div id="cs_smiley_box"></div>
-			', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
+			<div id="cs_reply">
+				<div class="cat_bar">
+					<h3 class="catbg">', $txt['cs_comment_box'],'</h3>
+				</div>
+				<div class="roundframe noup">
+					<div id="cs_bbc_box"></div>
+					<div id="cs_smiley_box"></div>
+					', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
+				</div>
+			</div>
 		</div>';
 }
