@@ -15,4 +15,5 @@ $txt['cs_comment_box'] = 'Comment on This Product';
 
 $txt['cs_editor'] = 'Editor';
 $txt['cs_preview'] = 'Preview';
-$txt['cs_no_preview'] = 'Nothing to Preview';
+$txt['cs_no_preview'] = 'Nothing to preview.';
+$txt['cs_loading'] = 'Loading...';

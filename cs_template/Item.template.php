@@ -59,7 +59,19 @@ function template_main()
 		<script>
 		$(document).ready(function(){
 			$("#cs_reply span").click(function(){
-				var tab_id = $(this).attr("data-tab");
+				var tab_id = $(this).data("tab");
+				var comment = $("#cs_editor textarea")[1].value;
+				
+				$("#cs_preview p").html("', $txt['cs_loading'], '");
+				$.ajax({
+					url: smf_scripturl + "?action=store_preview",
+					type: "post",
+					data: {preview: comment},
+					dataType: "json",
+					success: function(response) {
+						$("#cs_preview p").html(response.preview);
+					}
+				})
 
 				$("#cs_reply span").removeClass("enabled");
 				$(".cs_content").removeClass("enabled");
