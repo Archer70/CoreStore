@@ -16,8 +16,9 @@ function csPreview()
 		exit;
 	}
 
+	$preview = htmlspecialchars($_POST['preview'], ENT_QUOTES);
 	$returnData['success'] = true;
-	$returnData['preview'] = parse_bbc($_POST['preview']);
+	$returnData['preview'] = parse_bbc($preview);
 	echo json_encode($returnData);
 	exit;
 }
