@@ -60,8 +60,8 @@
 	min-height: 200px;
 	position: relative;
 }
-#cs_preview p {
-	padding: 5px;
+#cs_preview .windowbg {
+	min-height: inherit;
 }
 #cs_editor_switch, #cs_preview_switch {
 	border-radius: 3px 3px 0 0;

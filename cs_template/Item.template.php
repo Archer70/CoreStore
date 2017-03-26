@@ -48,7 +48,7 @@ function template_main()
 						', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
 					</div>
 					<div id="cs_preview" class="cs_content">
-						<p>', $txt['cs_no_preview'],'</p>
+						<div class="windowbg">', $txt['cs_no_preview'],'</div>
 					</div>
 				</div>
 			</div>
