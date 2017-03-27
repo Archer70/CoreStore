@@ -6,7 +6,11 @@ $txt['core_store'] = 'CoreStore';
 /* Menu */
 $txt['cs_shop'] = 'Shop';
 /* Front Page */
-
+$txt['cs_user_info'] = 'User Info';
+$txt['cs_featured'] = 'Featured Item';
+$txt['cs_no_featured'] = 'No Featured Item added yet';
+$txt['cs_categories'] = 'Categories';
+$txt['cs_no_category'] = 'No Category Added';
 /* Item Page */
 $txt['cs_buy_now'] = 'Buy Now';
 $txt['cs_comments'] = 'Comments on Product';
