@@ -69,7 +69,7 @@ function template_main()
 					data: {preview: comment},
 					dataType: "json",
 					success: function(response) {
-						$("#cs_preview p").html(response.preview);
+						$("#cs_preview div").html(response.preview);
 					}
 				})
 
