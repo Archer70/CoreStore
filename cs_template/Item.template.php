@@ -2,7 +2,7 @@
 
 function template_main()
 {
-    global $context, $txt, $settings;
+    global $scripturl, $context, $txt, $settings;
 	
 	// I can't think of a good reason making text bbc presentable shouldn't be a template operation.
 	$context['cs_item']['description'] = parse_bbc($context['cs_item']['description']);
@@ -40,16 +40,19 @@ function template_main()
 					<h3 class="catbg">', $txt['cs_comment_box'],'</h3>
 				</div>
 				<div class="roundframe noup">
-					<span id="cs_editor_switch" class="enabled" data-pane-id="cs_editor">', $txt['cs_editor'],'</span>
-					<span id="cs_preview_switch" data-pane-id="cs_preview">', $txt['cs_preview'],'</span>
-					<div id="cs_editor" class="cs_content enabled">
-						<div id="cs_bbc_box"></div>
-						<div id="cs_smiley_box"></div>
-						', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
-					</div>
-					<div id="cs_preview" class="cs_content">
-						<div class="windowbg">', $txt['cs_no_preview'],'</div>
-					</div>
+					<form method="post" action="', $scripturl , '?action=comment;do=new">
+						<span id="cs_editor_switch" class="enabled" data-pane-id="cs_editor">', $txt['cs_editor'],'</span>
+						<span id="cs_preview_switch" data-pane-id="cs_preview">', $txt['cs_preview'],'</span>
+						<div id="cs_editor" class="cs_content enabled">
+							<div id="cs_bbc_box"></div>
+							<div id="cs_smiley_box"></div>
+							', template_control_richedit($context['post_box_name'], 'cs_smiley_box', 'cs_bbc_box'), '
+						</div>
+						<div id="cs_preview" class="cs_content">
+							<div class="windowbg">', $txt['cs_no_preview'],'</div>
+						</div>
+						<input type="submit" class="button active" value="', $txt['cs_send_comment'], '">
+					</form>
 				</div>
 			</div>
 		</div>';
