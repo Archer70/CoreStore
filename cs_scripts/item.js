@@ -16,7 +16,7 @@ function toggleEditorPanes()
 function populatePreview()
 {
 	var comment = $("#cs_editor textarea")[1].value
-	$("#cs_preview p").html(csTxt.loading)
+	$("#cs_preview div").html(csTxt.loading)
 	$.ajax({
 		url: smf_scripturl + "?action=store_preview",
 		type: "post",
@@ -32,5 +32,14 @@ $(document).ready(function(){
 	$("#cs_reply span").click(function(){
 		toggleEditorPanes()
 		populatePreview()
+	})
+	$("body").on("keydown", function(event) { // Hijack the tab key for this page.
+		if (event.keyCode === 9) {
+			event.preventDefault()
+			if (getOtherTab().attr("id") !== "cs_edtor_switch") {
+				populatePreview()
+			}
+			toggleEditorPanes()
+		}
 	})
 })
