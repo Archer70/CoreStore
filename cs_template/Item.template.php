@@ -2,7 +2,7 @@
 
 function template_main()
 {
-    global $context, $txt;
+    global $context, $txt, $settings;
 	
 	// I can't think of a good reason making text bbc presentable shouldn't be a template operation.
 	$context['cs_item']['description'] = parse_bbc($context['cs_item']['description']);
@@ -40,8 +40,8 @@ function template_main()
 					<h3 class="catbg">', $txt['cs_comment_box'],'</h3>
 				</div>
 				<div class="roundframe noup">
-					<span id="cs_editor_switch" class="enabled" data-tab="cs_editor">', $txt['cs_editor'],'</span>
-					<span id="cs_preview_switch" data-tab="cs_preview">', $txt['cs_preview'],'</span>
+					<span id="cs_editor_switch" class="enabled" data-pane-id="cs_editor">', $txt['cs_editor'],'</span>
+					<span id="cs_preview_switch" data-pane-id="cs_preview">', $txt['cs_preview'],'</span>
 					<div id="cs_editor" class="cs_content enabled">
 						<div id="cs_bbc_box"></div>
 						<div id="cs_smiley_box"></div>
@@ -57,28 +57,9 @@ function template_main()
 		/* Snip taken from https://codepen.io/cssjockey/pen/jGzuK - thanks to cssjockey */
 		echo '
 		<script>
-		$(document).ready(function(){
-			$("#cs_reply span").click(function(){
-				var tab_id = $(this).data("tab");
-				var comment = $("#cs_editor textarea")[1].value;
-				
-				$("#cs_preview p").html("', $txt['cs_loading'], '");
-				$.ajax({
-					url: smf_scripturl + "?action=store_preview",
-					type: "post",
-					data: {preview: comment},
-					dataType: "json",
-					success: function(response) {
-						$("#cs_preview div").html(response.preview);
-					}
-				})
-
-				$("#cs_reply span").removeClass("enabled");
-				$(".cs_content").removeClass("enabled");
-
-				$(this).addClass("enabled");
-				$("#"+tab_id).addClass("enabled");
-			})
-		})
-		</script>';
+		var csTxt = {
+			loading: "', $txt['cs_loading'], '",
+		}
+		</script>
+		<script src="', $settings['theme_url'], '/scripts/cs_scripts/item.js"></script>';
 }
