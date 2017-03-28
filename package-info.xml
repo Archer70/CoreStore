@@ -12,7 +12,10 @@
 		<require-dir name="cs_styles" destination="$themedir/css" />
 		<require-dir name="cs_language" destination="$languagedir" />
 		<require-file name="images/cs_store.png" destination="$themedir/images" />
-		<database>install.php</database>
+		
+		<hook hook="integrate_actions" file="$sourcedir/cs_source/hook_function/IntegrateAction.php" function="csIntegrateAction" />
+		<hook hook="integrate_menu_buttons" file="$sourcedir/cs_source/hook_function/IntegrateMenu.php" function="csIntegrateMenu" />
+		<!-- <database>install.php</database> -->
 	</install>
 
 	<uninstall for="2.0.*, 2.1 Beta 2">
@@ -21,7 +24,10 @@
 		<remove-dir name="$themedir/css/cs_styles" />
 		<remove-dir name="$languagedir/cs_language" />
 		<remove-file name="$themedir/images/cs_store.png" />
-		<database>uninstall.php</database>
+		
+		<hook reverse="true" hook="integrate_actions" file="$sourcedir/cs_source/hook_function/IntegrateAction.php" function="csIntegrateAction" />
+		<hook reverse="true" hook="integrate_menu_buttons" file="$sourcedir/cs_source/hook_function/IntegrateMenu.php" function="csIntegrateMenu" />
+		<!-- <database>uninstall.php</database> -->
 	</uninstall>
 
 </package-info>
