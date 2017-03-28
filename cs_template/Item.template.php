@@ -54,7 +54,6 @@ function template_main()
 			</div>
 		</div>';
 
-		/* Snip taken from https://codepen.io/cssjockey/pen/jGzuK - thanks to cssjockey */
 		echo '
 		<script>
 		var csTxt = {
