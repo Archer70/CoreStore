@@ -1,0 +1,8 @@
+{
+    "name": "archer70/core-store",
+    "description": "A store mod for SMF",
+	"license": "proprietary",
+    "require": {
+        "phpunit/phpunit": "^6.0"
+    }
+}
