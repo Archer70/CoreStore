@@ -1,4 +1,4 @@
-# CoreStore
+# CoreStore [![Build Status](https://travis-ci.org/Archer70/CoreStore.svg?branch=master)](https://travis-ci.org/Archer70/CoreStore)
 A simple store mod for SMF.
 
 ## Recommended Setup
