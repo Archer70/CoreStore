@@ -1,6 +1,7 @@
 <?php
 use CoreStore\interactors\ItemInteractor;
 use CoreStore\test\test_doubles\ItemDouble;
+use CoreStore\utilities\MustacheFactory;
 
 require __DIR__ . '/../TestBootstrap.php';
 require $sourcedir . '/Subs-Post.php';
@@ -14,6 +15,7 @@ function csItem()
 	
 	$itemInteractor = new ItemInteractor(new ItemDouble());
 	$itemInteractor->loadItemContext(1);
+	$context['mustache'] = MustacheFactory::getMustacheEngine();
 	
 	$context['page_title'] = $txt['core_store'] . ' | ' . $context['cs_item']['title'];
 	
