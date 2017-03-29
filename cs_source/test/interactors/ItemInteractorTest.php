@@ -3,7 +3,7 @@ namespace CoreStore\test\interactors;
 use CoreStore\interactors\ItemInteractor;
 use CoreStore\test\test_doubles\ItemDouble;
 
-class ItemInteractorTest extends \PHPUnit_Framework_TestCase
+class ItemInteractorTest extends \PHPUnit\Framework\TestCase
 {
 	private $interactor;
 	

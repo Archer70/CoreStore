@@ -3,7 +3,7 @@ namespace CoreStore\test\interactors;
 use CoreStore\interactors\CommentInteractor;
 use CoreStore\test\test_doubles\CommentDouble;
 
-class CommentInteractorTest extends \PHPUnit_Framework_TestCase
+class CommentInteractorTest extends \PHPUnit\Framework\TestCase
 {
 	private $interactor;
 	

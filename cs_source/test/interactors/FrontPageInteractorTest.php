@@ -3,7 +3,7 @@ namespace CoreStore\test\interactors;
 use CoreStore\interactors\FrontPageInteractor;
 use CoreStore\test\test_doubles\FrontPageDouble;
 
-class FrontPageInteractorTest extends \PHPUnit_Framework_TestCase
+class FrontPageInteractorTest extends \PHPUnit\Framework\TestCase
 {
 	public function setUp()
 	{
