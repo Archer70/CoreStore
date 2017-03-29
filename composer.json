@@ -3,6 +3,6 @@
     "description": "A store mod for SMF",
 	"license": "proprietary",
     "require": {
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^5.7"
     }
 }
