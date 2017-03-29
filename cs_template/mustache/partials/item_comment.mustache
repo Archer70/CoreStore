@@ -1,0 +1,56 @@
+<textarea class="editor" name="cs_item_comments" id="cs_item_comments" cols="600" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);" tabindex="1" style="width: 100%; height: 250px;"></textarea>
+<div id="cs_item_comments_resizer" class="richedit_resize"></div>
+<input type="hidden" name="cs_item_comments_mode" id="cs_item_comments_mode" value="0">
+<script><!-- // --><![CDATA[
+	$(document).ready(function() {
+
+
+		$("#cs_item_comments").sceditor({
+			autofocus : true,
+			style: "{{settings.theme_url}}/css/jquery.sceditor.default.css",
+			emoticonsCompat: true,
+			colors: "black,red,yellow,pink,green,orange,purple,blue,beige,brown,teal,navy,maroon,limegreen,white",
+			plugins: "bbcode",
+			parserOptions: {
+				quoteType: $.sceditor.BBCodeParser.QuoteType.auto
+			},
+			emoticons:
+			{
+				dropdown:
+				{
+						':)': '{{settings.smileys_url}}/smiley.gif',
+						';)': '{{settings.smileys_url}}/wink.gif',
+						':D': '{{settings.smileys_url}}/cheesy.gif',
+						';D': '{{settings.smileys_url}}/grin.gif',
+						'>:(': '{{settings.smileys_url}}/angry.gif',
+						':(': '{{settings.smileys_url}}/sad.gif',
+						':o': '{{settings.smileys_url}}/shocked.gif',
+						'8)': '{{settings.smileys_url}}/cool.gif',
+						'???': '{{settings.smileys_url}}/huh.gif',
+						'::)': '{{settings.smileys_url}}/rolleyes.gif',
+						':P': '{{settings.smileys_url}}/tongue.gif',
+						':-[': '{{settings.smileys_url}}/embarrassed.gif',
+						':-X': '{{settings.smileys_url}}/lipsrsealed.gif',
+						':-\\': '{{settings.smileys_url}}/undecided.gif',
+						':-*': '{{settings.smileys_url}}/kiss.gif',
+						':\'(': '{{settings.smileys_url}}/cry.gif'
+				},
+				popup:
+				{
+				}
+			},
+			toolbar: "bold,italic,underline,strike|pre,left,center,right|font,size,color|||image,link,email,ftp|glow,shadow,move|superscript,subscript,tt|table,code,quote|bulletlist,orderedlist,horizontalrule|unformat,toggle,removeformat,source",
+		});
+		$("#cs_item_comments").data("sceditor").createPermanentDropDown();
+		$("#cs_item_comments").data("sceditor").toggleSourceMode();
+	});
+		var oEditorHandle_cs_item_comments = new smc_Editor({
+			sUniqueId: 'cs_item_comments',
+			sEditWidth: '100%',
+			sEditHeight: '250px',
+			bRichEditOff: false,
+			oSmileyBox: null,
+			oBBCBox: null
+		});
+		smf_editorArray[smf_editorArray.length] = oEditorHandle_cs_item_comments;
+	// ]]></script>
