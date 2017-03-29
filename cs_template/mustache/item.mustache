@@ -13,7 +13,7 @@
 	</div>
 
 	{{#comments}}
-	<div id="comment_', $comment['id'], '" class="windowbg">
+	<div id="comment_{{id}}" class="windowbg">
 		<div class="user_comment">{{body}}</div>
 		<div class="user_information">{{username}}</div>
 	</div>
@@ -24,7 +24,7 @@
 			<h3 class="catbg">{{txt.cs_comment_box}}</h3>
 		</div>
 		<div class="roundframe noup">
-			<form method="post" action="', $scripturl , '?action=comment;do=new">
+			<form method="post" action="{{scripturl}}?action=comment;do=new">
 				<span id="cs_editor_switch" class="enabled" data-pane-id="cs_editor">{{txt.cs_editor}}</span>
 				<span id="cs_preview_switch" data-pane-id="cs_preview">{{txt.cs_preview}}</span>
 				<div id="cs_editor" class="cs_content enabled">
@@ -43,7 +43,7 @@
 
 <script>
 	var csTxt = {
-		loading: "', $txt['cs_loading'], '",
+		loading: "{{txt.cs_loading}}",
 	}
 </script>
 <script src="{{settings.theme_url}}/scripts/cs_scripts/item.js"></script>

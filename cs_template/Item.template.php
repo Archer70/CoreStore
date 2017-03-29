@@ -2,26 +2,25 @@
 
 function template_main()
 {
-    global $context, $txt, $settings;
-		
-	formatComments();	
+    global $scripturl, $context, $txt, $settings;
+	
+	$context['cs_item']['description'] = parse_bbc($context['cs_item']['description']);
 
 	$tpl = $context['mustache']->loadTemplate('item');
 	echo $tpl->render([
+		'scripturl' => $scripturl,
 		'settings' => $settings,
 		'context' => $context,
 		'txt' => $txt,
-		'comments' => $comments,
+		'comments' => formatComments($context['cs_item_comments']),
 	]);
 }
 
-function formatComments()
+function formatComments(array $rawComments)
 {
-	global $context;
-	// I can't think of a good reason making text bbc presentable shouldn't be a template operation.
-	$context['cs_item']['description'] = parse_bbc($context['cs_item']['description']);
-	$comments = $context['cs_item_comments'];
-	foreach ($comments as $id => $comment) {
+	$comments = [];
+	foreach ($rawComments as $id => $comment) {
 		$comments[$id]['body'] = parse_bbc($comment['body']);
 	}
+	return $comments;
 }
