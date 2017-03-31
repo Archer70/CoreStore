@@ -1,6 +1,7 @@
 <?php
 use CoreStore\interactors\ItemInteractor;
-use CoreStore\test\test_doubles\ItemDouble;
+use CoreStore\data_managers\smf_mysql\ItemStorage;
+use CoreStore\data_managers\smf_mysql\ItemCommentStorage;
 use CoreStore\utilities\MustacheFactory;
 
 require __DIR__ . '/../TestBootstrap.php';
@@ -13,8 +14,14 @@ function csItem()
 	
 	loadLanguage('cs_language/CoreStore');
 	
-	$itemInteractor = new ItemInteractor(new ItemDouble());
-	$itemInteractor->loadItemContext(1);
+	if (!isset($_GET['item'])) {
+		fatal_error($txt['cs_no_item_specified']);
+	}
+	
+	$itemInteractor = new ItemInteractor(
+		new ItemStorage(), new ItemCommentStorage());
+	
+	$itemInteractor->loadItemContext($_GET['item']);
 	$context['mustache'] = MustacheFactory::getMustacheEngine();
 	
 	$context['page_title'] = $txt['core_store'] . ' | ' . $context['cs_item']['title'];

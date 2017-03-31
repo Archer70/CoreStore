@@ -12,6 +12,7 @@ $txt['cs_no_featured'] = 'No Featured Item added yet';
 $txt['cs_categories'] = 'Categories';
 $txt['cs_no_category'] = 'No Category Added';
 /* Item Page */
+$txt['cs_no_item_specified'] = 'No item was specified in this request.';
 $txt['cs_buy_now'] = 'Buy Now';
 $txt['cs_comments'] = 'Comments on Product';
 $txt['cs_slider'] = 'Image Slider';

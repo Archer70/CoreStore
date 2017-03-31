@@ -5,6 +5,7 @@ use CoreStore\interfaces\FrontPageData;
 class FrontPageInteractor
 {
 	private $data;
+	private $errors = [];
 	
 	public function __construct(FrontPageData $data)
 	{
@@ -15,9 +16,14 @@ class FrontPageInteractor
 	{
 		global $context;
 		$items = $this->data->getAllItems();
-		if (empty($items)) {
-			throw new \Exception('No items found.');
+		if (count($items) === 0) {
+			$this->errors[] = 'no_items_found';
 		}
 		$context['cs_items'] = $items;
+	}
+	
+	public function errors()
+	{
+		return $this->errors;
 	}
 }
