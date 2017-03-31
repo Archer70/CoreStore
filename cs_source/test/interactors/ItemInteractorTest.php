@@ -2,6 +2,7 @@
 namespace CoreStore\test\interactors;
 use CoreStore\interactors\ItemInteractor;
 use CoreStore\test\test_doubles\ItemDouble;
+use CoreStore\test\test_doubles\CommentDouble;
 
 class ItemInteractorTest extends \PHPUnit_Framework_TestCase
 {
@@ -9,7 +10,7 @@ class ItemInteractorTest extends \PHPUnit_Framework_TestCase
 	
 	public function setUp()
 	{
-		$this->interactor = new ItemInteractor(new ItemDouble());
+		$this->interactor = new ItemInteractor(new ItemDouble(), new CommentDouble());
 	}
 	
 	public function testLoadsContextWithDbInfo()     
@@ -20,12 +21,9 @@ class ItemInteractorTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue(is_array($context['cs_item']));
 	}
 	
-	/**
-		* @expectedException Exception
-		* @expectedExceptionMessage No item found with that id.
-		*/
-	public function testThrowsErrorIfNoInfo()     
+	public function testHasErrorIfNoInfo()     
 	{
 		$this->interactor->loadItemContext(1337);
+		$this->assertContains('no_item_found', $this->interactor->errors());
 	}
 }

@@ -23,13 +23,10 @@ class FrontPageInteractorTest extends \PHPUnit_Framework_TestCase
 		$this->assertNotEmpty($context['cs_items']);
 	}
 	
-	/**
-		* @expectedException Exception
-		* @expectedExceptionMessage No items found.
-		*/
-	public function testThrowsErrorIfNoItems()     
+	public function testHasErrorIfNoItems()     
 	{
 		FrontPageDouble::$returnNoItems = true;
 		$this->interactor->loadItems();
+		$this->assertContains('no_items_found', $this->interactor->errors());
 	}
 }
