@@ -6,6 +6,10 @@ $txt['core_store'] = 'CoreStore';
 /* Menu */
 $txt['cs_shop'] = 'Shop';
 /* Front Page */
+$txt['cs_admin'] = 'Admin';
+$txt['cs_admin_page'] = 'Store Admin Center';
+$txt['cs_permissions'] = 'Permissions';
+$txt['cs_add_item'] = 'Add Item';
 $txt['cs_user_info'] = 'User Info';
 $txt['cs_featured'] = 'Featured Item';
 $txt['cs_no_featured'] = 'No Featured Item added yet';
