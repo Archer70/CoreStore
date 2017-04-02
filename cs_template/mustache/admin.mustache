@@ -6,7 +6,16 @@
 		{{txt.cs_categories}}
 	</h3>
 </div>
-<div class="roundframe noup">
+<div class="add_listing roundframe">
+	<form method="post" action="">
+		<input type="text" name="title" placeholder="title">
+		<input type="number" name="price" placeholder="price, ex: 1.23">
+		<textarea name="description" placeholder="description"></textarea>
+		Featured: <input type="checkbox" name="featured">
+		<input type="submit" value="Add Item">
+	</form>
+</div>
+<div class="roundframe">
 	<table>
 		<tr>
 			<th>Title</th>
@@ -22,7 +31,16 @@
 		{{txt.cs_items}}
 	</h3>
 </div>
-<div class="roundframe noup">
+<div class="add_listing roundframe">
+	<form method="post" action="">
+		<input type="text" name="title" placeholder="title">
+		<input type="number" name="price" placeholder="price, ex: 1.23">
+		<textarea name="description" placeholder="description"></textarea>
+		Featured: <input type="checkbox" name="featured">
+		<input type="submit" value="Add Item">
+	</form>
+</div>
+<div class="roundframe">
 	<table>
 		<tr>
 			<th>{{txt.cs_image}}</th>
@@ -32,17 +50,7 @@
 			<th>{{txt.cs_is_featured}}</th>
 		</tr>
 		{{# context.cs_items }}
-		<tr>
-			<td>
-				{{#image}}
-				<img class="cs_mini_thumbnail" src="{{image}}" alt="{{title}}">
-				{{/image}}
-			</td>
-			<td>{{title}}</td>
-			<td>{{description}}</td>
-			<td>${{price}}</td>
-			<td>true</td>
-		</td>
+			{{> item-listing }}
 		{{/ context.cs_items }}
 	</table>
 </div>

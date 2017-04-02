@@ -12,6 +12,11 @@ th, td {
 	text-align: left;
 	border-bottom: 1px solid #ddd;
 }
+input[type="text"], input[type="number"], textarea {
+	display: block;
+	margin: 0 0 10px 0;
+	width: 100%;
+}
 .cs_mini_thumbnail {
 	max-width: 48px;
 	max-height: 48px;
@@ -19,5 +24,8 @@ th, td {
 .catbg .cs_link_strip {
 	float: right;
 	text-align: right;
+}
+.add_listing {
+	display: none;
 }
 
