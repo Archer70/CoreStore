@@ -5,10 +5,20 @@ $txt['core_store'] = 'CoreStore';
 
 /* Menu */
 $txt['cs_shop'] = 'Shop';
-/* Front Page */
+/* Admin Page */
 $txt['cs_admin'] = 'Admin';
 $txt['cs_admin_page'] = 'Store Admin Center';
 $txt['cs_permissions'] = 'Permissions';
+$txt['cs_items'] = 'Items';
+$txt['cs_image'] = 'Image';
+$txt['cs_title'] = 'Title';
+$txt['cs_description'] = 'Description';
+$txt['cs_price'] = 'Price';
+$txt['cs_is_featured'] = 'Featured';
+$txt['cs_add_category'] = 'Add Category';
+$txt['cs_add_item'] = 'Add Item';
+
+/* Front Page */
 $txt['cs_add_item'] = 'Add Item';
 $txt['cs_user_info'] = 'User Info';
 $txt['cs_featured'] = 'Featured Item';

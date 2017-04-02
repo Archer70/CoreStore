@@ -2,8 +2,11 @@
 
 function template_main()
 {
-	global $context;
+	global $context, $txt;
 	
 	$tpl = $context['mustache']->loadTemplate('admin');
-	echo $tpl->render();
+	echo $tpl->render([
+		'context' => $context,
+		'txt' => $txt
+	]);
 }

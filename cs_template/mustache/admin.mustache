@@ -1,1 +1,48 @@
-test
+<div class="cat_bar">
+	<h3 class="catbg">
+		<div class="cs_link_strip">
+			<a href="#add_category">[{{txt.cs_add_category}}]</a>
+		</div>
+		{{txt.cs_categories}}
+	</h3>
+</div>
+<div class="roundframe noup">
+	<table>
+		<tr>
+			<th>Title</th>
+		</tr>
+	</table>
+</div>
+
+<div class="cat_bar">
+	<h3 class="catbg">
+		<div class="cs_link_strip">
+			<a href="#add_item">[{{txt.cs_add_item}}]</a>
+		</div>
+		{{txt.cs_items}}
+	</h3>
+</div>
+<div class="roundframe noup">
+	<table>
+		<tr>
+			<th>{{txt.cs_image}}</th>
+			<th>{{txt.cs_title}}</th>
+			<th>{{txt.cs_description}}</th>
+			<th>{{txt.cs_price}}</th>
+			<th>{{txt.cs_is_featured}}</th>
+		</tr>
+		{{# context.cs_items }}
+		<tr>
+			<td>
+				{{#image}}
+				<img class="cs_mini_thumbnail" src="{{image}}" alt="{{title}}">
+				{{/image}}
+			</td>
+			<td>{{title}}</td>
+			<td>{{description}}</td>
+			<td>${{price}}</td>
+			<td>true</td>
+		</td>
+		{{/ context.cs_items }}
+	</table>
+</div>

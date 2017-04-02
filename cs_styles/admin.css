@@ -1,0 +1,23 @@
+.roundframe {
+	/* Pretend we don't have .noup */
+	margin: 0 0 10px 0;
+}
+table {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+th, td {
+	padding: 6px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+.cs_mini_thumbnail {
+	max-width: 48px;
+	max-height: 48px;
+}
+.catbg .cs_link_strip {
+	float: right;
+	text-align: right;
+}
+
