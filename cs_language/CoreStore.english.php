@@ -15,8 +15,10 @@ $txt['cs_title'] = 'Title';
 $txt['cs_description'] = 'Description';
 $txt['cs_price'] = 'Price';
 $txt['cs_is_featured'] = 'Featured';
+$txt['cs_price_example'] = 'Price, ex: 1.23';
 $txt['cs_add_category'] = 'Add Category';
 $txt['cs_add_item'] = 'Add Item';
+$txt['cs_cancel'] = 'Cancel';
 
 /* Front Page */
 $txt['cs_add_item'] = 'Add Item';
