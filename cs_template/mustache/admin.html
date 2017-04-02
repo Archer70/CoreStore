@@ -7,7 +7,7 @@
 	</h3>
 </div>
 <div id="add_category" class="add_listing roundframe">
-	<form method="post" action="">
+	<form method="post" action="{{scripturl}}?action=store_category;do=create">
 		<input type="text" name="title" placeholder="{{txt.cs_title}}">
 		<input type="submit" value="{{txt.cs_add_category}}"> <input type="button" class="cancel_button" data-close="#add_category" value="{{txt.cs_cancel}}">
 	</form>
@@ -15,7 +15,7 @@
 <div class="roundframe">
 	<table>
 		<tr>
-			<th>Title</th>
+			<th>{{txt.cs_title}}</th>
 		</tr>
 	</table>
 </div>
@@ -29,7 +29,7 @@
 	</h3>
 </div>
 <div id="add_item" class="add_listing roundframe">
-	<form method="post" action="">
+	<form method="post" action="{{scripturl}}?action=store_item;do=create">
 		<input type="text" name="title" placeholder="title">
 		<input type="number" name="price" placeholder="price, ex: 1.23">
 		<textarea name="description" placeholder="description"></textarea>
