@@ -9,6 +9,13 @@ function csIntegrateMenu(&$menu)
 		'title' => $txt['cs_shop'],
 		'href' => $scripturl . '?action=store',
 		'show' => true,
-		'icon' => 'cs_store.png'
+		'icon' => 'cs_store.png',
+		'sub_buttons' => [
+			'admin' => [
+				'title' => $txt['cs_admin_page'],
+				'href' => $scripturl . '?action=store_admin',
+				'show' => true
+			]
+		]
 	];
 }

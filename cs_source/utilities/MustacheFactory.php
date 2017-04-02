@@ -15,8 +15,10 @@ class MustacheFactory
 
 			},
 			'cache' => $settings['theme_dir'] . '/cs_template/mustache/cache',
-			'loader' => new \Mustache_Loader_FilesystemLoader($settings['theme_dir'] . '/cs_template/mustache'),
-			'partials_loader' => new \Mustache_Loader_FilesystemLoader($settings['theme_dir'] . '/cs_template/mustache/partials'),
+			'loader' => new \Mustache_Loader_FilesystemLoader(
+				$settings['theme_dir'] . '/cs_template/mustache', ['extension' => '.html']),
+			'partials_loader' => new \Mustache_Loader_FilesystemLoader(
+				$settings['theme_dir'] . '/cs_template/mustache/partials', ['extension' => '.html']),
 		]);
 	}
 }

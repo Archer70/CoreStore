@@ -1,0 +1,56 @@
+<div class="cat_bar">
+	<h3 class="catbg">
+		<div class="cs_link_strip">
+			<a href="#add_category">[{{txt.cs_add_category}}]</a>
+		</div>
+		{{txt.cs_categories}}
+	</h3>
+</div>
+<div class="add_listing roundframe">
+	<form method="post" action="">
+		<input type="text" name="title" placeholder="title">
+		<input type="number" name="price" placeholder="price, ex: 1.23">
+		<textarea name="description" placeholder="description"></textarea>
+		Featured: <input type="checkbox" name="featured">
+		<input type="submit" value="Add Item">
+	</form>
+</div>
+<div class="roundframe">
+	<table>
+		<tr>
+			<th>Title</th>
+		</tr>
+	</table>
+</div>
+
+<div class="cat_bar">
+	<h3 class="catbg">
+		<div class="cs_link_strip">
+			<a href="#add_item">[{{txt.cs_add_item}}]</a>
+		</div>
+		{{txt.cs_items}}
+	</h3>
+</div>
+<div class="add_listing roundframe">
+	<form method="post" action="">
+		<input type="text" name="title" placeholder="title">
+		<input type="number" name="price" placeholder="price, ex: 1.23">
+		<textarea name="description" placeholder="description"></textarea>
+		Featured: <input type="checkbox" name="featured">
+		<input type="submit" value="Add Item">
+	</form>
+</div>
+<div class="roundframe">
+	<table>
+		<tr>
+			<th>{{txt.cs_image}}</th>
+			<th>{{txt.cs_title}}</th>
+			<th>{{txt.cs_description}}</th>
+			<th>{{txt.cs_price}}</th>
+			<th>{{txt.cs_is_featured}}</th>
+		</tr>
+		{{# context.cs_items }}
+			{{> item-listing }}
+		{{/ context.cs_items }}
+	</table>
+</div>
