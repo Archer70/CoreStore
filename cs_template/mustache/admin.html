@@ -6,19 +6,16 @@
 		{{txt.cs_categories}}
 	</h3>
 </div>
-<div class="add_listing roundframe">
-	<form method="post" action="">
-		<input type="text" name="title" placeholder="title">
-		<input type="number" name="price" placeholder="price, ex: 1.23">
-		<textarea name="description" placeholder="description"></textarea>
-		Featured: <input type="checkbox" name="featured">
-		<input type="submit" value="Add Item">
+<div id="add_category" class="add_listing roundframe">
+	<form method="post" action="{{scripturl}}?action=store_category;do=create">
+		<input type="text" name="title" placeholder="{{txt.cs_title}}">
+		<input type="submit" value="{{txt.cs_add_category}}"> <input type="button" class="cancel_button" data-close="#add_category" value="{{txt.cs_cancel}}">
 	</form>
 </div>
 <div class="roundframe">
 	<table>
 		<tr>
-			<th>Title</th>
+			<th>{{txt.cs_title}}</th>
 		</tr>
 	</table>
 </div>
@@ -31,13 +28,13 @@
 		{{txt.cs_items}}
 	</h3>
 </div>
-<div class="add_listing roundframe">
-	<form method="post" action="">
+<div id="add_item" class="add_listing roundframe">
+	<form method="post" action="{{scripturl}}?action=store_item;do=create">
 		<input type="text" name="title" placeholder="title">
 		<input type="number" name="price" placeholder="price, ex: 1.23">
 		<textarea name="description" placeholder="description"></textarea>
-		Featured: <input type="checkbox" name="featured">
-		<input type="submit" value="Add Item">
+		{{txt.cs_featured}}: <input type="checkbox" name="featured">
+		<input type="submit" value="{{txt.cs_add_item}}"> <input type="button" class="cancel_button" data-close="#add_item" value="{{txt.cs_cancel}}">
 	</form>
 </div>
 <div class="roundframe">
@@ -54,3 +51,5 @@
 		{{/ context.cs_items }}
 	</table>
 </div>
+
+<script src="{{settings.theme_url}}/scripts/cs_scripts/admin.js"></script>
