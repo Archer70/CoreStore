@@ -6,7 +6,7 @@ class ItemStorage implements ItemData
 {
 	public function getItemInformation($itemId)
 	{
-		global $context, $smcFunc;
+		global $smcFunc;
 		
 		$item = [];
 		$query = $smcFunc['db_query']('', '
@@ -27,5 +27,28 @@ class ItemStorage implements ItemData
 			];
 		}
 		return $item;
+	}
+	
+	public function saveItem(array $item)
+	{
+		global $smcFunc;
+		
+		$smcFunc['db_insert']('insert', '{db_prefix}cs_items',
+			[
+				'title' => 'string',
+				'description' => 'string',
+				'image' => 'string',
+				'price' => 'float'
+			],
+			[
+				$item['title'],
+				$item['description'],
+				$item['image'],
+				$item['price']
+			],
+			[
+				'id'
+			]
+		);
 	}
 }

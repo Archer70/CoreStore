@@ -11,7 +11,8 @@ class FrontPageStorage implements FrontPageData
 		$items = [];
 		$query = $smcFunc['db_query']('', '
 			SELECT id, title, description, image, price
-			FROM {db_prefix}cs_items', // One of these days, we'll want to paginate this. That day is not today.
+			FROM {db_prefix}cs_items
+			ORDER BY id DESC', // One of these days, we'll want to paginate this. That day is not today.
 			[]
 		);
 		while ($row = $smcFunc['db_fetch_assoc']($query)) {
