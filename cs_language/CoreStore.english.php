@@ -3,14 +3,19 @@
 /* Title */
 $txt['core_store'] = 'CoreStore';
 
+/* General */
+$txt['cs_unknown_action'] = 'Unknown action';
+
 /* Menu */
 $txt['cs_shop'] = 'Shop';
+
 /* Admin Page */
 $txt['cs_admin'] = 'Admin';
 $txt['cs_admin_page'] = 'Store Admin Center';
 $txt['cs_permissions'] = 'Permissions';
 $txt['cs_items'] = 'Items';
 $txt['cs_image'] = 'Image';
+$txt['cs_image_url'] = 'Image URL';
 $txt['cs_title'] = 'Title';
 $txt['cs_description'] = 'Description';
 $txt['cs_price'] = 'Price';
@@ -27,6 +32,7 @@ $txt['cs_featured'] = 'Featured Item';
 $txt['cs_no_featured'] = 'No Featured Item added yet';
 $txt['cs_categories'] = 'Categories';
 $txt['cs_no_category'] = 'No Category Added';
+
 /* Item Page */
 $txt['cs_no_item_specified'] = 'No item was specified in this request.';
 $txt['cs_buy_now'] = 'Buy Now';
