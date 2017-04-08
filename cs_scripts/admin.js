@@ -22,7 +22,10 @@ $(document).ready(function()
 			data: $(this).serialize(),
 			dataType: "html",
 			success: function(response) {
-				$("#items").append(response)
+				if (response == 'failed'){
+					return;
+				}
+				$("#items tr:first").after(response)
 			}
 		})
 	})
