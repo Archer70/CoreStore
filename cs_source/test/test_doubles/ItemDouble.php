@@ -13,4 +13,9 @@ class ItemDouble implements ItemData
 Turkey short loin boudin ball tip cow frankfurter drumstick alcatra pig. Tenderloin pork tongue spare ribs meatball, jowl meatloaf beef ribs shoulder ball tip turducken t-bone boudin. Pastrami flank t-bone, bacon alcatra frankfurter bresaola jerky beef ribs. Chuck shankle shank, picanha rump swine ground round. Leberkas doner bresaola sausage boudin pig short ribs, andouille cow ribeye prosciutto tenderloin turkey ham hock. :)'
 		] : [];
 	}
+	
+	public function saveItem(array $item)
+	{
+		// do nothing.
+	}
 }
