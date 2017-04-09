@@ -1,16 +1,22 @@
 <?php
 namespace CoreStore\interactors;
+use CoreStore\interfaces\CategoryData;
 
 class CategoryInteractor
 {
 	private $errors;
 	private $data;
-	
-	public function __construct($data)
+
+	public function __construct(CategoryData $data)
 	{
 		$this->data = $data;
 	}
-	
+
+	public function getAllCategories()
+	{
+		return $this->data->getAll();
+	}
+
 	public function saveCategory($name)
 	{
 		if (empty($name)) {
@@ -21,7 +27,7 @@ class CategoryInteractor
 			$this->data->save($name);
 		}
 	}
-	
+
 	public function errors()
 	{
 		return $this->errors;
