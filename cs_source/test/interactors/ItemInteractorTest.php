@@ -4,7 +4,7 @@ use CoreStore\interactors\ItemInteractor;
 use CoreStore\test\test_doubles\ItemDouble;
 use CoreStore\test\test_doubles\CommentDouble;
 
-class ItemInteractorTest extends \PHPUnit_Framework_TestCase
+class ItemInteractorTest extends \PHPUnit\Framework\TestCase
 {
 	private $interactor;
 	
