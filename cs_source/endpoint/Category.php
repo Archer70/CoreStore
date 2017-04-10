@@ -9,6 +9,8 @@ function csCategory()
 {
 	if (isset($_GET['route']) && $_GET['route'] == 'save') {
 		saveCategory();
+	} else if (isset($_GET['route']) && $_GET['route'] == 'delete') {
+		deleteCategory();
 	}
 }
 
@@ -35,4 +37,19 @@ function saveCategory()
 		'txt' => $txt
 	]);
 	exit;
+}
+
+function deleteCategory()
+{
+	$id = isset($_REQUEST['id']) ? (int) $_REQUEST['id'] : 0;
+	$category = new CategoryInteractor(
+		new CategoryStorage());
+	$category->deleteCategory($id);
+	
+	if (!empty($category->errors())) {
+		print_r($category->errors());
+		exit;
+	} else {
+		exit('success');
+	}	
 }

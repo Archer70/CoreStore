@@ -62,4 +62,14 @@ class CategoryStorage implements CategoryData
 		}
 		return $category;
 	}
+	
+	public function delete($id)
+	{
+		global $smcFunc;
+		$smcFunc['db_query']('', '
+			DELETE FROM {db_prefix}cs_categories
+			WHERE id = {int:id}',
+			['id' => $id]
+		);
+	}
 }

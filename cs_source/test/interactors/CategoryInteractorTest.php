@@ -52,7 +52,38 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 		$last = $this->interactor->getLatestCategory();
 		$this->assertEquals('Latest', $last['name']);
 	}
-
+	
+	public function testDeletesCategory()
+	{
+		$this->interactor->deleteCategory(1);
+		$this->assertEquals([
+			['id'=>0,'name'=>'cat']
+		], $this->interactor->getAllCategories());
+	}
+	
+	public function testErrorIfDeleteIdNotInt()
+	{
+		$this->interactor->deleteCategory('asdf');
+		$this->assertContains('id_not_int', $this->firstError());
+	}
+	
+	public function testCantDeleteIdZero()
+	{
+		$this->interactor->deleteCategory(0);
+		$this->assertContains('zero_id', $this->firstError());
+	}
+	
+	public function testDoesntDeleteIfInvalidId()
+	{
+		$this->interactor->deleteCategory('fail');
+		$this->assertFalse(CategoryDouble::$deleted);
+		
+		CategoryDouble::reset();
+		
+		$this->interactor->deleteCategory(0);
+		$this->assertFalse(CategoryDouble::$deleted);
+	}
+	
 	private function firstError()
 	{
 		$errors = $this->interactor->errors();
