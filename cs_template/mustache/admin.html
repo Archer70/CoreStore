@@ -8,19 +8,17 @@
 </div>
 <div id="add_category" class="add_listing roundframe">
 	<form method="post" action="{{scripturl}}?action=store_category;route=create">
-		<input type="text" name="title" placeholder="{{txt.cs_title}}">
+		<input type="text" name="name" placeholder="{{txt.cs_title}}">
 		<input type="submit" value="{{txt.cs_add_category}}"> <input type="button" class="cancel_button" data-close="#add_category" value="{{txt.cs_cancel}}">
 	</form>
 </div>
 <div class="roundframe">
-	<table>
+	<table id="categories">
 		<tr>
 			<th>{{txt.cs_title}}</th>
 		</tr>
 		{{# context.categories }}
-		<tr>
-			<td>{{ name }}</td>
-		</tr>
+			{{> category_listing }}
 		{{/ context.categories }}
 	</table>
 </div>

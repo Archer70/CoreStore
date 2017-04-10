@@ -29,12 +29,7 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 		$this->interactor->saveCategory('Existing');
 		$this->assertEquals('category_exists', $this->firstError());
 	}
-
-	public function testMethodGetAllCategories()
-	{
-		$this->interactor->getAllCategories();
-	}
-
+	
 	public function testGetsCategoriesFromDB()
 	{
 		$cats = $this->interactor->getAllCategories();

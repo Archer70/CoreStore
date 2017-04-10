@@ -9,7 +9,8 @@ class CategoryStorage implements CategoryData
 		global $smcFunc;
 		$query = $smcFunc['db_query']('', '
 			SELECT id, name
-			FROM {db_prefix}cs_categories',
+			FROM {db_prefix}cs_categories
+			ORDER BY id DESC',
 			[]
 		);
 		$categories = [];
@@ -21,6 +22,27 @@ class CategoryStorage implements CategoryData
 
 	public function save($name)
 	{
+		global $smcFunc;
+		$smcFunc['db_insert']('insert', '{db_prefix}cs_categories',
+			['name' => 'string'],
+			['name' => $name],
+			['id']
+		);
+	}
 
+	public function categoryExists($name)
+	{
+		global $smcFunc;
+		$query = $smcFunc['db_query']('', '
+			SELECT id
+			FROM {db_prefix}cs_categories
+			WHERE name = {string:name}',
+			['name' => $name]
+		);
+		$result = null;
+		while ($row = $smcFunc['db_fetch_row']($query)) {
+			$result = $row;
+		}
+		return !is_null($result);
 	}
 }

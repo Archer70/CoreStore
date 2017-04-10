@@ -6,7 +6,7 @@ $(document).ready(function()
 		var hash = window.location.hash
 		$(hash).slideDown()
 	})
-	
+
 	$(".cancel_button").on("click", function()
 	{
 		var parent = $(this).data("close")
@@ -22,10 +22,26 @@ $(document).ready(function()
 			data: $(this).serialize(),
 			dataType: "html",
 			success: function(response) {
-				if (response == 'failed'){
-					return;
+				if (response == 'failed') {
+					return
 				}
 				$("#items tr:first").after(response)
+			}
+		})
+	})
+
+	$("#add_category form").on("submit", function(event) {
+		event.preventDefault()
+		$.ajax({
+			url: smf_scripturl + "?action=store_category;route=save",
+			type: "post",
+			data: $(this).serialize(),
+			dataType: "html",
+			success: function(response) {
+				if (response == 'failed') {
+					return
+				}
+				$("#categories tr:first").after(response)
 			}
 		})
 	})
