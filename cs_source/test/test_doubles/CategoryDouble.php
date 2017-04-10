@@ -5,11 +5,20 @@ use CoreStore\interfaces\CategoryData;
 class CategoryDouble implements CategoryData
 {
 	public static $saved = false;
-	public static $categories = [];
+	public static $categories = [
+		[
+			'id' => 0,
+			'name' => 'cat'
+		],
+		[
+			'id' => 1,
+			'name' => 'cat2'
+		]
+	];
 
 	public function getAll()
 	{
-		return ['cat', 'cat2'];
+		return self::$categories;
 	}
 
 	public function save($name)
@@ -35,5 +44,15 @@ class CategoryDouble implements CategoryData
 	public static function reset()
 	{
 		self::$saved = false;
+		self::$categories = [
+			[
+				'id' => 0,
+				'name' => 'cat'
+			],
+			[
+				'id' => 1,
+				'name' => 'cat2'
+			]
+		];
 	}
 }

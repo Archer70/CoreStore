@@ -33,7 +33,17 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 	public function testGetsCategoriesFromDB()
 	{
 		$cats = $this->interactor->getAllCategories();
-		$this->assertEquals(['cat','cat2'], $cats);
+		$this->assertEquals([
+			[
+				'id' => 0,
+				'name' => 'cat'
+
+			],
+			[
+				'id' => 1,
+				'name' => 'cat2'
+			]
+		], $cats);
 	}
 
 	public function testGetsLastCategoryInserted()
