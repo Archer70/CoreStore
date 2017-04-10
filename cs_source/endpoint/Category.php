@@ -14,18 +14,25 @@ function csCategory()
 
 function saveCategory()
 {
+	global $txt;
 	header('Content-Type: text/html');
 
 	$name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : '';
-	$categoryInteractor = new CategoryInteractor(
+	$category = new CategoryInteractor(
 		new CategoryStorage());
-	$categoryInteractor->saveCategory($name);
+	$category->saveCategory($name);
 
-	if (!empty($categoryInteractor->errors())) {
+	$latest = $category->getLatestCategory();
+
+	if (!empty($category->errors())) {
 		exit('failed');
 	}
 
 	$mustache = MustacheFactory::getMustacheEngine();
-	echo $mustache->render('partials/category_listing', ['name' => $name]);
+	echo $mustache->render('partials/category_listing', [
+		'id' => $latest['id'],
+		'name' => $latest['name'],
+		'txt' => $txt
+	]);
 	exit;
 }

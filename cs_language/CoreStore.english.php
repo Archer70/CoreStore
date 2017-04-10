@@ -24,6 +24,7 @@ $txt['cs_price_example'] = 'Price, ex: 1.23';
 $txt['cs_add_category'] = 'Add Category';
 $txt['cs_add_item'] = 'Add Item';
 $txt['cs_cancel'] = 'Cancel';
+$txt['css_actions'] = 'Actions';
 
 /* Front Page */
 $txt['cs_add_item'] = 'Add Item';

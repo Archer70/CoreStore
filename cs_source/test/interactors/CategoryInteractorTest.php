@@ -29,11 +29,18 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 		$this->interactor->saveCategory('Existing');
 		$this->assertEquals('category_exists', $this->firstError());
 	}
-	
+
 	public function testGetsCategoriesFromDB()
 	{
 		$cats = $this->interactor->getAllCategories();
 		$this->assertEquals(['cat','cat2'], $cats);
+	}
+
+	public function testGetsLastCategoryInserted()
+	{
+		$this->interactor->saveCategory('Latest');
+		$last = $this->interactor->getLatestCategory();
+		$this->assertEquals('Latest', $last['name']);
 	}
 
 	private function firstError()

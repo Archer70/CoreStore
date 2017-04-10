@@ -28,6 +28,11 @@ class CategoryInteractor
 		}
 	}
 
+	public function getLatestCategory()
+	{
+		return$this->data->getLast();
+	}
+
 	public function errors()
 	{
 		return $this->errors;

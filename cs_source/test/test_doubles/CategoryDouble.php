@@ -5,6 +5,7 @@ use CoreStore\interfaces\CategoryData;
 class CategoryDouble implements CategoryData
 {
 	public static $saved = false;
+	public static $categories = [];
 
 	public function getAll()
 	{
@@ -14,11 +15,20 @@ class CategoryDouble implements CategoryData
 	public function save($name)
 	{
 		self::$saved = true;
+		self::$categories[] = [
+			'id' => count(self::$categories),
+			'name' => $name
+		];
 	}
 
 	public function categoryExists($name)
 	{
 		return $name == 'Existing';
+	}
+
+	public function getLast()
+	{
+		return end(self::$categories);
 	}
 
 	// Reset the mock. This is not a normal part of CategoryData

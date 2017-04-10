@@ -45,4 +45,21 @@ class CategoryStorage implements CategoryData
 		}
 		return !is_null($result);
 	}
+
+	public function getLast()
+	{
+		global $smcFunc;
+		$query = $smcFunc['db_query']('', '
+			SELECT id, name
+			FROM {db_prefix}cs_categories
+			ORDER BY id DESC
+				LIMIT 1',
+			[]
+		);
+		$category = [];
+		while ($row = $smcFunc['db_fetch_assoc']($query)) {
+			$category = $row;
+		}
+		return $category;
+	}
 }
