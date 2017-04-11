@@ -7,4 +7,5 @@ interface CategoryData
 	public function save($name);
 	public function categoryExists($name);
 	public function getLast();
+	public function delete($id);
 }

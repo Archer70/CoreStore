@@ -32,6 +32,18 @@ class CategoryInteractor
 	{
 		return$this->data->getLast();
 	}
+	
+	public function deleteCategory($id)
+	{
+		if (!is_int($id)) {
+			$this->errors[] = 'id_not_int';
+			return;
+		} else if ($id <= 0) {
+			$this->errors[] = 'zero_id';
+			return;
+		}
+		$this->data->delete($id);
+	}
 
 	public function errors()
 	{

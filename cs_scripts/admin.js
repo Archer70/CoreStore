@@ -22,10 +22,11 @@ $(document).ready(function()
 			data: $(this).serialize(),
 			dataType: "html",
 			success: function(response) {
-				if (response == 'failed') {
+				if (response == "failed") {
 					return
 				}
 				$("#items tr:first").after(response)
+				$("#add_item").slideUp()
 			}
 		})
 	})
@@ -38,10 +39,30 @@ $(document).ready(function()
 			data: $(this).serialize(),
 			dataType: "html",
 			success: function(response) {
-				if (response == 'failed') {
+				if (response == "failed") {
 					return
 				}
 				$("#categories tr:first").after(response)
+				$("#add_category").slideUp()
+			}
+		})
+	})
+	
+	$("#categories").on("click", ".delete_category", function(event) {
+		event.preventDefault()
+		var category = $(this)
+		$.ajax({
+			url: smf_scripturl + "?action=store_category;route=delete",
+			type: "post",
+			data: {id: $(category).data("category")},
+			dataType: "html",
+			success: function(response) {
+				if (response == "success") {
+					$(category).parents("tr").fadeOut("normal", function()
+					{
+						$(this).remove()
+					})
+				}
 			}
 		})
 	})
