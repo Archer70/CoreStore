@@ -30,11 +30,12 @@
 			<div class="windowbg2 noup">
 				{{txt.cs_no_featured}}
 			</div>
+		</div>
 
 			{{#context.cs_items}}
 			<div class="cs_item">
                 <h3><a href="{{scripturl}}?action=store_item;route=view;item={{id}}">{{title}}</a></h3>
-                <img src="{{image}}" alt="bacon">
+                <div class="cs_image"><img src="{{image}}" alt="bacon"></div>
                 <span class="price">{{price}}</span>
                 <span class="description">{{description}}</span>
             </div>
