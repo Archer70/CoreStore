@@ -16,40 +16,48 @@ function csCategory()
 
 function saveCategory()
 {
-	global $txt;
-	header('Content-Type: text/html');
-
 	$name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : '';
-	$category = new CategoryInteractor(
-		new CategoryStorage());
+	$category = newInteractor();
 	$category->saveCategory($name);
-
 	$latest = $category->getLatestCategory();
 
 	if (!empty($category->errors())) {
 		exit('failed');
 	}
 
-	$mustache = MustacheFactory::getMustacheEngine();
-	echo $mustache->render('partials/category_listing', [
-		'id' => $latest['id'],
-		'name' => $latest['name'],
-		'txt' => $txt
-	]);
-	exit;
+	sendNewCategoryHtml($latest);
 }
 
 function deleteCategory()
 {
 	$id = isset($_REQUEST['id']) ? (int) $_REQUEST['id'] : 0;
-	$category = new CategoryInteractor(
-		new CategoryStorage());
+	$category = newInteractor();
 	$category->deleteCategory($id);
 	
+	header('Content-Type: text/html');
 	if (!empty($category->errors())) {
 		print_r($category->errors());
 		exit;
 	} else {
 		exit('success');
 	}	
+}
+
+function sendNewCategoryHtml($category)
+{
+	global $txt;
+	header('Content-Type: text/html');
+	$mustache = MustacheFactory::getMustacheEngine();
+	echo $mustache->render('partials/category_listing', [
+		'id' => $category['id'],
+		'name' => $category['name'],
+		'txt' => $txt
+	]);
+	exit;
+}
+
+function newInteractor()
+{
+    return new CategoryInteractor(
+        new CategoryStorage());
 }
