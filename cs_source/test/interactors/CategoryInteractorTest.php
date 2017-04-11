@@ -52,7 +52,7 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 		$last = $this->interactor->getLatestCategory();
 		$this->assertEquals('Latest', $last['name']);
 	}
-	
+
 	public function testDeletesCategory()
 	{
 		$this->interactor->deleteCategory(1);
@@ -60,30 +60,60 @@ class CategoryInteractorTest extends \PHPUnit\Framework\TestCase
 			['id'=>0,'name'=>'cat']
 		], $this->interactor->getAllCategories());
 	}
-	
+
 	public function testErrorIfDeleteIdNotInt()
 	{
 		$this->interactor->deleteCategory('asdf');
 		$this->assertContains('id_not_int', $this->firstError());
 	}
-	
+
 	public function testCantDeleteIdZero()
 	{
 		$this->interactor->deleteCategory(0);
 		$this->assertContains('zero_id', $this->firstError());
 	}
-	
+
 	public function testDoesntDeleteIfInvalidId()
 	{
 		$this->interactor->deleteCategory('fail');
 		$this->assertFalse(CategoryDouble::$deleted);
-		
+
 		CategoryDouble::reset();
-		
+
 		$this->interactor->deleteCategory(0);
 		$this->assertFalse(CategoryDouble::$deleted);
 	}
-	
+
+	public function testModifiesCategory()
+	{
+		$id = 1;
+		$name = 'New Name';
+		$this->interactor->modifyCategory($id, $name);
+		$this->assertEquals($name, $this->interactor->getLatestCategory()['name']);
+		$this->assertTrue(CategoryDouble::$modified);
+	}
+
+	public function testErrorIfModifyIdNotInt()
+	{
+		$this->interactor->modifyCategory('asd', 'New Name');
+		$this->assertEquals('modify_id_not_int', $this->firstError());
+		$this->assertFalse(CategoryDouble::$modified);
+	}
+
+	public function testErrorIfEmptyModifyName()
+	{
+		$this->interactor->modifyCategory(1, '');
+		$this->assertEquals('empty_modify_name', $this->firstError());
+		$this->assertFalse(CategoryDouble::$modified);
+	}
+
+	public function testErrorIfModifyIdZero()
+	{
+		$this->interactor->modifyCategory(0, 'New Name');
+		$this->assertEquals('zero_category_id', $this->firstError());
+		$this->assertFalse(CategoryDouble::$modified);
+	}
+
 	private function firstError()
 	{
 		$errors = $this->interactor->errors();

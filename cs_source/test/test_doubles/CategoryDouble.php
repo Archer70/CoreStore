@@ -6,6 +6,7 @@ class CategoryDouble implements CategoryData
 {
 	public static $saved = false;
 	public static $deleted = false;
+	public static $modified = false;
 	public static $categories = [
 		[
 			'id' => 0,
@@ -40,7 +41,7 @@ class CategoryDouble implements CategoryData
 	{
 		return end(self::$categories);
 	}
-	
+
 	public function delete($id)
 	{
 		foreach (self::$categories as $index => $category) {
@@ -51,11 +52,24 @@ class CategoryDouble implements CategoryData
 		}
 	}
 
+	public function modify($id, $name)
+	{
+		foreach (self::$categories as $index => $category) {
+			if ($id == $category['id']) {
+				self::$categories[$index] = [
+					'id' => $id, 'name' => $name
+				];
+				self::$modified = true;
+			}
+		}
+	}
+
 	// Reset the mock. This is not a normal part of CategoryData
 	public static function reset()
 	{
 		self::$saved = false;
 		self::$deleted = false;
+		self::$modified = false;
 		self::$categories = [
 			[
 				'id' => 0,
