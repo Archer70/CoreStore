@@ -33,8 +33,12 @@ $(document).ready(function()
 
 	$("#add_category form").on("submit", function(event) {
 		event.preventDefault()
+		var editing = $(this).children("input[type=submit]").data("modify")
+		var route = (editing ? "modify" : "save")
+		var postUrl = smf_scripturl + "?action=store_category;route=" + route
+		var id = $(this).children("input[type=hidden]").val()
 		$.ajax({
-			url: smf_scripturl + "?action=store_category;route=save",
+			url: postUrl,
 			type: "post",
 			data: $(this).serialize(),
 			dataType: "html",
@@ -42,12 +46,16 @@ $(document).ready(function()
 				if (response == "failed") {
 					return
 				}
-				$("#categories tr:first").after(response)
+				if (editing) {
+					$("#categories tr[data=cat_" + id + "]").replaceWith(response)
+				} else {
+					$("#categories tr:first").after(response)
+				}
 				$("#add_category").slideUp()
 			}
 		})
 	})
-	
+
 	$("#categories").on("click", ".delete_category", function(event) {
 		event.preventDefault()
 		var category = $(this)
@@ -65,6 +73,15 @@ $(document).ready(function()
 				}
 			}
 		})
+	})
+
+	$("#categories").on("click", ".modify_category", function(event)
+	{
+		var name = $(this).parents("tr").children("td:first").text()
+		var id = $(this).data("category")
+		$("#add_category form").append("<input type=\"hidden\" name=\"id\" value=\"" + id + "\">")
+		$("#add_category input[type=text]").val(name)
+		$("#add_category input[type=submit]").data("modify", true)
 	})
 })
 

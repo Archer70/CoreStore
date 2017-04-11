@@ -62,7 +62,7 @@ class CategoryStorage implements CategoryData
 		}
 		return $category;
 	}
-	
+
 	public function delete($id)
 	{
 		global $smcFunc;
@@ -70,6 +70,17 @@ class CategoryStorage implements CategoryData
 			DELETE FROM {db_prefix}cs_categories
 			WHERE id = {int:id}',
 			['id' => $id]
+		);
+	}
+
+	public function modify($id, $name)
+	{
+		global $smcFunc;
+		$smcFunc['db_query']('', '
+			UPDATE {db_prefix}cs_categories
+			SET name = {string:name}
+			WHERE id = {int:id}',
+			['name' => $name, 'id' => $id]
 		);
 	}
 }

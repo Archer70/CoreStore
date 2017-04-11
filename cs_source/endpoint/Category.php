@@ -11,6 +11,8 @@ function csCategory()
 		saveCategory();
 	} else if (isset($_GET['route']) && $_GET['route'] == 'delete') {
 		deleteCategory();
+	} else if (isset($_GET['route']) && $_GET['route'] == 'modify') {
+		modifyCategory();
 	}
 }
 
@@ -33,14 +35,29 @@ function deleteCategory()
 	$id = isset($_REQUEST['id']) ? (int) $_REQUEST['id'] : 0;
 	$category = newInteractor();
 	$category->deleteCategory($id);
-	
+
 	header('Content-Type: text/html');
 	if (!empty($category->errors())) {
 		print_r($category->errors());
 		exit;
 	} else {
 		exit('success');
-	}	
+	}
+}
+
+function modifyCategory()
+{
+	$id = isset($_REQUEST['id']) ? (int) $_REQUEST['id'] : 0;
+	$name = isset($_REQUEST['name']) ? $_REQUEST['name'] : '';
+	$category = newInteractor();
+	$category->modifyCategory($id, $name);
+
+	if (empty($category->errors())) {
+		sendNewCategoryHtml(['id' => $id, 'name' => $name]);
+	} else {
+		print_r($category->errors());
+		exit('failed');
+	}
 }
 
 function sendNewCategoryHtml($category)
