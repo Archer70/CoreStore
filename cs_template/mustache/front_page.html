@@ -18,7 +18,12 @@
 			<h3 class="titlebg">{{txt.cs_categories}}</h3>
 		</div>
 		<div class="information">
-			{{txt.cs_no_category}}
+			{{#context.categories}}
+				<a href="#sort_by_category" data-category-id="{{id}}">{{name}}</a><br>
+			{{/context.categories}}
+			{{^context.categories}}
+				{{txt.cs_no_category}}
+			{{/context.categories}}
 		</div>
 	</div>
 
